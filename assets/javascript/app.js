@@ -273,12 +273,9 @@ var questions = [
     }
 ]
 
-
-
 // Code to run the timer on the page.
 var startTimerValue;
 var intervalId;
-
 
 function startQuestionTimer() {
     clearInterval(intervalId);
@@ -317,17 +314,9 @@ function currentGameQuestions() {
         }
         eightQuestions.push(tempQuestion);
         usedQuestions.push(tempQuestion.question);
-        
-        //questions.splice(randomIndex, 1);
-
     }
-    console.log(eightQuestions);
+    //console.log(eightQuestions);
 }
-
-// Grabs a random question out of the questions array.
-//function randomQuestion() {
-//    return questions[Math.floor(Math.random() * questions.length)];
-//}
 
 function shouldGameEnd() {
     if (eightQuestions === undefined){
@@ -340,9 +329,8 @@ function shouldGameEnd() {
     }
 }
 
-
 function answerButtons() {
-    console.log("This is what is in currentQuestion: " + currentQuestion.answers);
+    //console.log("This is what is in currentQuestion: " + currentQuestion.answers);
     currentQuestion.answers.forEach(function(answer) {
         //answersArray.push(answer);
         $("#choice").append(`<button data-val=${answer}>${answer}</button>`)
@@ -355,8 +343,8 @@ function buttonClick() {
         ans.off("click");
         ans.on("click", function(event) {
             var a = ans.text();
-            console.log("This is a: " + a);
-            console.log("This is current: " + currentQuestion.correct[0]);
+            //console.log("This is a: " + a);
+            //console.log("This is current: " + currentQuestion.correct[0]);
             if (a === currentQuestion.correct[0]) {
                 correct++;
                 stopTimer();
@@ -408,10 +396,9 @@ function endOfGame() {
     runGame(); 
 }
 
-
 function startGame() {
     reset();
-    console.log("Should the game end? " +shouldGameEnd());
+    //console.log("Should the game end? " +shouldGameEnd());
     if (shouldGameEnd()) {
         endOfGame();
         return;
